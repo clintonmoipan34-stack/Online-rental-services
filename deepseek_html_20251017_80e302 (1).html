@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FlashTool Rental - Professional Flashing Tools</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header Styles */
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        .logo span {
+            color: #4da6ff;
+        }
+
+        /* Moving Text */
+        .moving-text-container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 10px 0;
+            overflow: hidden;
+            border-bottom: 1px solid #444;
+        }
+
+        .moving-text {
+            white-space: nowrap;
+            animation: moveText 25s linear infinite;
+            font-size: 18px;
+            font-weight: bold;
+            color: #ffcc00;
+        }
+
+        @keyframes moveText {
+            0% { transform: translateX(100%); }
+            100% { transform: translateX(-100%); }
+        }
+
+        /* Rotating Logos */
+        .rotating-logos {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 120px;
+            background: rgba(0, 0, 0, 0.5);
+            margin: 20px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .logo-item {
+            position: absolute;
+            opacity: 0;
+            animation: rotateLogos 24s infinite;
+            width: 80px;
+            height: 80px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.1);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .logo-item img {
+            max-width: 70px;
+            max-height: 70px;
+            border-radius: 5px;
+        }
+
+        .logo-item:nth-child(1) { animation-delay: 0s; }
+        .logo-item:nth-child(2) { animation-delay: 2s; }
+        .logo-item:nth-child(3) { animation-delay: 4s; }
+        .logo-item:nth-child(4) { animation-delay: 6s; }
+        .logo-item:nth-child(5) { animation-delay: 8s; }
+
+        @keyframes rotateLogos {
+            0% { opacity: 0; transform: scale(0.5) rotate(0deg); }
+            5% { opacity: 1; transform: scale(1) rotate(0deg); }
+            10% { opacity: 1; transform: scale(1) rotate(360deg); }
+            15% { opacity: 0; transform: scale(0.5) rotate(360deg); }
+            100% { opacity: 0; }
+        }
+
+        /* Search Box */
+        .search-container {
+            margin: 20px 0;
+            text-align: center;
+        }
+
+        .search-box {
+            display: inline-flex;
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.9);
+        }
+
+        .search-box button {
+            padding: 12px 25px;
+            background: #4da6ff;
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background 0.3s;
+        }
+
+        .search-box button:hover {
+            background: #2d8cff;
+        }
+
+        /* Instruction */
+        .instruction {
+            text-align: center;
+            background: rgba(0, 0, 0, 0.7);
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            font-size: 18px;
+            color: #ffcc00;
+            border: 1px solid #444;
+        }
+
+        /* Tools Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .tool-card {
+            background: rgba(0, 0, 0, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: 1px solid #444;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(0, 0, 0, 0.6);
+        }
+
+        .tool-header {
+            display: flex;
+            align-items: center;
+            padding: 15px;
+            background: rgba(40, 40, 40, 0.9);
+            border-bottom: 1px solid #444;
+        }
+
+        .tool-logo {
+            width: 60px;
+            height: 60px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+
+        .tool-logo img {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 5px;
+        }
+
+        .tool-title {
+            flex: 1;
+        }
+
+        .tool-name {
+            font-size: 20px;
+            font-weight: bold;
+            color: #4da6ff;
+        }
+
+        .tool-price {
+            font-size: 18px;
+            color: #ffcc00;
+            margin-top: 5px;
+        }
+
+        .tool-body {
+            padding: 15px;
+        }
+
+        .tool-features {
+            list-style-type: none;
+            margin: 15px 0;
+        }
+
+        .tool-features li {
+            padding: 5px 0;
+            border-bottom: 1px dashed #444;
+            position: relative;
+            padding-left: 25px;
+        }
+
+        .tool-features li:before {
+            content: "✓";
+            color: #4da6ff;
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .download-link {
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+            margin: 10px 0;
+            text-decoration: none;
+            color: #ffcc00;
+            font-size: 14px;
+            word-break: break-all;
+            transition: background 0.3s;
+        }
+
+        .download-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .rent-btn {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #4da6ff, #2d8cff);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            margin-top: 10px;
+        }
+
+        .rent-btn:hover {
+            background: linear-gradient(to right, #2d8cff, #1a75ff);
+            transform: scale(1.02);
+        }
+
+        /* Payment Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background: linear-gradient(135deg, #2c3e50, #4ca1af);
+            width: 90%;
+            max-width: 500px;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #444;
+        }
+
+        .modal-header h2 {
+            color: #ffcc00;
+            margin: 0;
+        }
+
+        .modal-body {
+            padding: 20px;
+        }
+
+        .option-btn {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            margin: 10px 0;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid #555;
+            border-radius: 8px;
+            color: white;
+            font-size: 16px;
+            text-align: left;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .option-btn:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(5px);
+        }
+
+        .option-btn i {
+            margin-right: 10px;
+            color: #4da6ff;
+        }
+
+        .payment-details {
+            display: none;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .payment-info {
+            font-size: 18px;
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 5px;
+        }
+
+        .copy-btn {
+            background: #4da6ff;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            transition: background 0.3s;
+        }
+
+        .copy-btn:hover {
+            background: #2d8cff;
+        }
+
+        .close-modal {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: #e74c3c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background 0.3s;
+        }
+
+        .close-modal:hover {
+            background: #c0392b;
+        }
+
+        /* Footer */
+        footer {
+            background: rgba(0, 0, 0, 0.9);
+            padding: 30px 0;
+            margin-top: 50px;
+            border-top: 1px solid #444;
+        }
+
+        .payment-methods {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .payment-methods h3 {
+            color: #ffcc00;
+            margin-bottom: 20px;
+            font-size: 22px;
+        }
+
+        .payment-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .payment-option {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .payment-option span {
+            font-weight: bold;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .social-link {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-decoration: none;
+            color: white;
+            transition: transform 0.3s;
+        }
+
+        .social-link:hover {
+            transform: scale(1.1);
+        }
+
+        .social-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .telegram {
+            background: #0088cc;
+        }
+
+        .whatsapp {
+            background: #25D366;
+        }
+
+        .social-icon img {
+            width: 35px;
+            height: 35px;
+        }
+
+        .next-page {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        .next-btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(to right, #ffcc00, #ff9900);
+            color: #333;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 18px;
+            font-weight: bold;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .next-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 20px;
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .logo {
+                margin-bottom: 10px;
+            }
+            
+            .rotating-logos {
+                height: 100px;
+            }
+            
+            .logo-item {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo-item img {
+                max-width: 50px;
+                max-height: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Flash<span>Tool</span> Rental</div>
+                <div class="search-container">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search for tools...">
+                        <button><i class="fas fa-search"></i> Search</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Moving Text -->
+    <div class="moving-text-container">
+        <div class="moving-text">Smartphone flashing tricks. All listed Tools Activation Available</div>
+    </div>
+
+    <!-- Rotating Logos -->
+    <div class="container">
+        <div class="rotating-logos">
+            <div class="logo-item">
+                <img src="https://i.ibb.co/C3XT03DR/Screenshot-20251017-001636-2.jpg" alt="SIGMA TOOL">
+            </div>
+            <div class="logo-item">
+                <img src="https://i.ibb.co/4Z2Pjggg/unlocktool-png.png" alt="UNLOCK TOOL">
+            </div>
+            <div class="logo-item">
+                <img src="https://i.ibb.co/tMwLddst/Screenshot-20251016-221811-1.jpg" alt="Tool Logo">
+            </div>
+            <div class="logo-item">
+                <img src="https://i.ibb.co/FqbMJMyS/logo-5.png" alt="CHEETAH TOOL">
+            </div>
+            <div class="logo-item">
+                <img src="https://i.ibb.co/MxGb4vdB/screen.png" alt="KG KILLER">
+            </div>
+        </div>
+    </div>
+
+    <!-- Instruction -->
+    <div class="container">
+        <div class="instruction">
+            <i class="fas fa-info-circle"></i> Choose a tool, make payment, send screenshot to the owner
+        </div>
+    </div>
+
+    <!-- Tools Grid -->
+    <div class="container">
+        <div class="tools-grid" id="toolsGrid">
+            <!-- Tools will be inserted here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Payment Modal -->
+    <div class="modal" id="paymentModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitle">Rent Tool</h2>
+            </div>
+            <div class="modal-body" id="modalBody">
+                <!-- Content will be dynamically inserted -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="payment-methods">
+                <h3>Payment Methods Supported</h3>
+                <div class="payment-options">
+                    <div class="payment-option">
+                        <span>1. Binance</span>
+                        <span>1099432993</span>
+                    </div>
+                    <div class="payment-option">
+                        <span>2. M-Pesa/Safaricom</span>
+                        <span>0740559604</span>
+                    </div>
+                    <div class="payment-option">
+                        <span>3. PayPal</span>
+                        <span>clintonmoipan34@gmail.com</span>
+                    </div>
+                    <div class="payment-option">
+                        <span>4. Airtel Money</span>
+                        <span>0104 677919</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://t.me/httpstmeWgL6k9taojRlODQ0" class="social-link" target="_blank">
+                    <div class="social-icon telegram">
+                        <img src="https://i.ibb.co/7t23kjB5/Telegram-2019-Logo-svg.png" alt="Telegram">
+                    </div>
+                    <span>Message on Telegram</span>
+                </a>
+                <a href="https://wa.me/message/HB7YU37RR4XUH1" class="social-link" target="_blank">
+                    <div class="social-icon whatsapp">
+                        <img src="https://i.ibb.co/23ty6Qcy/Whatsapp-Web-Card.png" alt="WhatsApp">
+                    </div>
+                    <span>Message on WhatsApp</span>
+                </a>
+            </div>
+
+            <div class="next-page">
+                <a href="#" class="next-btn">ACTIVATION NEXT PAGE</a>
+            </div>
+
+            <div class="copyright">
+                &copy; 2023 FlashTool Rental. All rights reserved. @ Clinton
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tool data
+        const tools = [
+            {
+                id: 1,
+                name: "AMT TOOL",
+                logo: "https://i.ibb.co/RpG6FttC/logo.png",
+                price: "6hrs -> 2$",
+                features: [
+                    "Support Auth for Transition devices",
+                    "Support Anti crack",
+                    "Support Auth for latest Vivo, Xiaomi, Realme and Hmd",
+                    "Support Demo remove on Oppo devices"
+                ],
+                download: "https://dl.androidmultitool.com/Android_Multi_Tool_v1.3.3.4.exe"
+            },
+            {
+                id: 2,
+                name: "UAT TOOL",
+                logo: "https://i.ibb.co/RpHjLRfn/2.jpg",
+                price: "5hrs -> 2$",
+                features: [
+                    "Support low level security devices",
+                    "Support also wide range of Qualcomm, Spd and Mtk devices"
+                ],
+                download: "https://uni-android.com/download-uatpro.php#"
+            },
+            {
+                id: 3,
+                name: "DFT TOOL",
+                logo: "https://i.ibb.co/dw0LM9m9/untree-co-dashboard-mocklayout-laptop.png",
+                price: "48hrs -> 4$",
+                features: [
+                    "Support Anti crack",
+                    "Support IME repair widely",
+                    "Support wide range of Qualcomm, Spd and Mtk devices"
+                ],
+                download: "https://download.dftpro.com/DFTPRO_v6.5.4.exe"
+            },
+            {
+                id: 4,
+                name: "UNLOCK TOOL",
+                logo: "https://i.ibb.co/4Z2Pjggg/unlocktool-png.png",
+                price: "6hrs -> 2$",
+                features: [
+                    "Support both IOS and Android devices",
+                    "Support kg bypass",
+                    "Support payjoy bypass",
+                    "Support IME repair limited!",
+                    "Support wide range of Qualcomm, Spd and Mtk devices"
+                ],
+                download: "https://file.unlocktool.net/"
+            },
+            {
+                id: 5,
+                name: "CHEETAH TOOL",
+                logo: "https://i.ibb.co/FqbMJMyS/logo-5.png",
+                price: "4hrs -> 2$",
+                features: [
+                    "Support Knox on Samsung devices",
+                    "Support IME repair",
+                    "Support payjoy bypass",
+                    "Support wide range of Qualcomm, Spd and Mtk devices"
+                ],
+                download: "https://cheetah-tool.com/dl/CHEETAH_TOOL_PRO"
+            },
+            {
+                id: 6,
+                name: "PANDORA.NET TOOL",
+                logo: "https://i.ibb.co/JRvTk8fR/product-pandora-inner-thumbnail-1.png",
+                price: "48hrs -> 12$",
+                features: [
+                    "Powerful for SPD and Mtk devices",
+                    "Support Qualcomm also",
+                    "Unfortunately doesn't support Auth operations",
+                    "Support some device IME repair"
+                ],
+                download: "https://downloads1.z3x.dev/getLatestVersion.php"
+            },
+            {
+                id: 7,
+                name: "HYDRA.NET TOOL",
+                logo: "https://i.ibb.co/rKJbq1nf/logo-4.png",
+                price: "24hrs -> 3$",
+                features: [
+                    "Support Auth",
+                    "Support payjoy bypass",
+                    "Support wide range of Qualcomm, Spd and Mtk devices",
+                    "Support also IME repair functions"
+                ],
+                download: "https://www.hydradongle.com/download/software#"
+            },
+            {
+                id: 8,
+                name: "TSM TOOL",
+                logo: "https://i.ibb.co/p8zP5ZR/1-1.jpg",
+                price: "12hrs -> 2.5$",
+                features: [
+                    "Support kg for Samsung devices",
+                    "Support Mdm bypass for Transition devices"
+                ],
+                download: "https://www.mediafire.com/file/rdnc6kb18qt0uy3/TSM_SetupV2.3.3.7z/file"
+            },
+            {
+                id: 9,
+                name: "ANDROID WIN TOOL",
+                logo: "https://i.ibb.co/cSPCTRb7/toggle-logo-1.png",
+                price: "48hrs -> 3$",
+                features: [
+                    "Support Anti crack 5crds",
+                    "Support also other small functions"
+                ],
+                download: "https://www.mediafire.com/file/pbdi9s415tme9u4/AndroidWinSetup_v1.7.7.exe/file"
+            },
+            {
+                id: 10,
+                name: "CM2 ONLINE TOOL",
+                logo: "https://i.ibb.co/7d5r0HDX/ios-logo-1.png",
+                price: "24hrs -> 12$",
+                features: [
+                    "Very powerful for Mtk and Spd device",
+                    "Unfortunately no Auth support for now",
+                    "Work without box"
+                ],
+                download: "https://www.mediafire.com/file_premium/zqj8l7blyvhtaap/CM2SP3_v2.41_by_%2528gsmofficial.com%2529.zip/file"
+            },
+            {
+                id: 11,
+                name: "SIGMA TOOL",
+                logo: "https://i.ibb.co/C3XT03DR/Screenshot-20251017-001636-2.jpg",
+                price: "3days -> 12$",
+                features: [
+                    "Support exynos powered devices",
+                    "Widely used for Samsung",
+                    "No box required"
+                ],
+                download: "https://sigmakey.com/nfs/content/5802/file/sigmaplus-software-setup-v1.01.02.exe"
+            },
+            {
+                id: 12,
+                name: "NCK.ONLINE TOOL",
+                logo: "https://i.ibb.co/JXMJGz7/nckkk-768x497.png",
+                price: "1 month -> 12$",
+                features: [
+                    "Support both IOS and Android devices",
+                    "Support network unlock"
+                ],
+                download: "https://ln5.sync.com/dl/19b123070#utzdxmc4-7yua4jz6-tkad9jjn-zczffpk9"
+            },
+            {
+                id: 13,
+                name: "CF TOOL",
+                logo: "https://i.ibb.co/bMfhv60x/Cf-Tool-Rent.png",
+                price: "6hrs -> 2$",
+                features: [
+                    "Support Xiaomi flashing",
+                    "Support other operations also"
+                ],
+                download: "https://bit.ly/4npX8Lb"
+            },
+            {
+                id: 14,
+                name: "GRIFFIN UNLOCKER",
+                logo: "https://i.ibb.co/yBp6L9M6/logo-6.png",
+                price: "6hrs -> 3.5$",
+                features: [
+                    "Support both IOS and Android phones",
+                    "Support kg for Samsung devices"
+                ],
+                download: "https://griffin-unlocker.com/SetupGriffinUnlocker.rar"
+            },
+            {
+                id: 15,
+                name: "TFM TOOL",
+                logo: "https://i.ibb.co/KpvThHYq/brand.png",
+                price: "3hrs -> 3$",
+                features: [
+                    "Support Auth functions",
+                    "Support payjoy bypass for free"
+                ],
+                download: "https://tfmtool.com/tfm-download/multitool/TFMMultiTool_V0.0.1_AP.7z"
+            },
+            {
+                id: 16,
+                name: "NICE UNLOCKER",
+                logo: "https://i.ibb.co/ZrvQVbX/nice-unlock-tool.jpg",
+                price: "6hrs -> 4$",
+                features: [
+                    "Support kg bypass for Samsung",
+                    "Support Mdm bypass for Itel, Techno & Infinix"
+                ],
+                download: "https://www.mediafire.com/file/03r9gfhnhids63i/Nice_Unlocker_V3.8.2025.rar.7z/file"
+            },
+            {
+                id: 17,
+                name: "MDM FIX TOOL",
+                logo: "https://i.ibb.co/9mVNvVY0/image-1-2.jpg",
+                price: "6hrs -> 3.5$",
+                features: [
+                    "Support kg for Samsung",
+                    "Support Mdm bypass"
+                ],
+                download: "https://download.mdmfixtool.com/MDMFixTool_v1.0.9.1.exe"
+            },
+            {
+                id: 18,
+                name: "ANONYSHU TOOL",
+                logo: "https://i.ibb.co/YMDshd8/image-1.png",
+                price: "6hrs -> 3.5$",
+                features: [
+                    "Support kg for Samsung devices",
+                    "Support Mdm bypass for Itel/Techno & Infinix"
+                ],
+                download: "https://anonyshu.com/download/AnonySHU-V2.0.24.19.exe"
+            },
+            {
+                id: 19,
+                name: "PHOENIX SERVICE TOOL",
+                logo: "https://i.ibb.co/tpk1RH0W/p5.jpg",
+                price: "Unlimited -> 12$",
+                features: [
+                    "Came with 10crds",
+                    "Support Anti crack",
+                    "Support Auth for Xiaomi and Hmd"
+                ],
+                download: "https://mega.nz/folder/Z2gkwQQb#H0-h8TbVbJYYO10hpyySGg"
+            },
+            {
+                id: 20,
+                name: "KG KILLER",
+                logo: "https://i.ibb.co/MxGb4vdB/screen.png",
+                price: "4hrs -> 3$",
+                features: [
+                    "Fix kg for Samsung devices"
+                ],
+                download: "https://kgkiller.com/downloads#"
+            }
+        ];
+
+        // Render tools
+        function renderTools() {
+            const toolsGrid = document.getElementById('toolsGrid');
+            toolsGrid.innerHTML = '';
+            
+            tools.forEach(tool => {
+                const toolCard = document.createElement('div');
+                toolCard.className = 'tool-card';
+                
+                toolCard.innerHTML = `
+                    <div class="tool-header">
+                        <div class="tool-logo">
+                            <img src="${tool.logo}" alt="${tool.name}">
+                        </div>
+                        <div class="tool-title">
+                            <div class="tool-name">${tool.name}</div>
+                            <div class="tool-price">${tool.price}</div>
+                        </div>
+                    </div>
+                    <div class="tool-body">
+                        <ul class="tool-features">
+                            ${tool.features.map(feature => `<li>${feature}</li>`).join('')}
+                        </ul>
+                        <a href="${tool.download}" class="download-link" target="_blank">
+                            <i class="fas fa-download"></i> ${tool.download}
+                        </a>
+                        <button class="rent-btn" data-tool-id="${tool.id}" data-tool-name="${tool.name}">
+                            <i class="fas fa-shopping-cart"></i> RENT BUTTON
+                        </button>
+                    </div>
+                `;
+                
+                toolsGrid.appendChild(toolCard);
+            });
+            
+            // Add event listeners to rent buttons
+            document.querySelectorAll('.rent-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const toolId = this.getAttribute('data-tool-id');
+                    const toolName = this.getAttribute('data-tool-name');
+                    openPaymentModal(toolId, toolName);
+                });
+            });
+        }
+
+        // Payment modal functions
+        function openPaymentModal(toolId, toolName) {
+            const modal = document.getElementById('paymentModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            
+            modalTitle.textContent = `Rent ${toolName}`;
+            
+            modalBody.innerHTML = `
+                <p>Please choose an option for ${toolName}:</p>
+                <button class="option-btn" data-action="payment">
+                    <i class="fas fa-credit-card"></i> Choose Payment Method
+                </button>
+                <button class="option-btn" data-action="contact">
+                    <i class="fas fa-comments"></i> Contact/Message Snapdragon / Owner
+                </button>
+                <button class="close-modal">Close</button>
+            `;
+            
+            modal.style.display = 'flex';
+            
+            // Add event listeners to option buttons
+            modalBody.querySelector('[data-action="payment"]').addEventListener('click', function() {
+                showPaymentOptions(toolId, toolName);
+            });
+            
+            modalBody.querySelector('[data-action="contact"]').addEventListener('click', function() {
+                showContactOptions(toolId, toolName);
+            });
+            
+            modalBody.querySelector('.close-modal').addEventListener('click', function() {
+                modal.style.display = 'none';
+            });
+        }
+
+        function showPaymentOptions(toolId, toolName) {
+            const modalBody = document.getElementById('modalBody');
+            
+            modalBody.innerHTML = `
+                <p>Select payment method for ${toolName}:</p>
+                <button class="option-btn" data-method="binance">
+                    <i class="fab fa-bitcoin"></i> Proceed with Binance
+                </button>
+                <button class="option-btn" data-method="mpesa">
+                    <i class="fas fa-mobile-alt"></i> Proceed with Safaricom/M-Pesa
+                </button>
+                <button class="option-btn" data-method="airtel">
+                    <i class="fas fa-mobile-alt"></i> Proceed with Airtel Money
+                </button>
+                <button class="option-btn" data-method="paypal">
+                    <i class="fab fa-paypal"></i> Proceed with PayPal
+                </button>
+                <div id="paymentDetails"></div>
+                <button class="close-modal">Back</button>
+            `;
+            
+            // Add event listeners to payment method buttons
+            modalBody.querySelectorAll('.option-btn').forEach(button => {
+                if (button.getAttribute('data-method')) {
+                    button.addEventListener('click', function() {
+                        const method = this.getAttribute('data-method');
+                        showPaymentDetails(method);
+                    });
+                }
+            });
+            
+            modalBody.querySelector('.close-modal').addEventListener('click', function() {
+                openPaymentModal(toolId, toolName);
+            });
+        }
+
+        function showPaymentDetails(method) {
+            const paymentDetails = document.getElementById('paymentDetails');
+            let detailsHTML = '';
+            
+            switch(method) {
+                case 'binance':
+                    detailsHTML = `
+                        <div class="payment-details" style="display: block;">
+                            <p>Please send payment to:</p>
+                            <div class="payment-info">
+                                Binance ID: 1099432993
+                                <button class="copy-btn" data-text="1099432993">Copy</button>
+                            </div>
+                            <p>After payment, send screenshot to the owner.</p>
+                        </div>
+                    `;
+                    break;
+                case 'mpesa':
+                    detailsHTML = `
+                        <div class="payment-details" style="display: block;">
+                            <p>Please send payment to:</p>
+                            <div class="payment-info">
+                                M-Pesa Number: 0740559604
+                                <button class="copy-btn" data-text="0740559604">Copy</button>
+                            </div>
+                            <p>After payment, send screenshot to the owner.</p>
+                        </div>
+                    `;
+                    break;
+                case 'airtel':
+                    detailsHTML = `
+                        <div class="payment-details" style="display: block;">
+                            <p>Please send payment to:</p>
+                            <div class="payment-info">
+                                Airtel Money: 0104 677919
+                                <button class="copy-btn" data-text="0104 677919">Copy</button>
+                            </div>
+                            <p>After payment, send screenshot to the owner.</p>
+                        </div>
+                    `;
+                    break;
+                case 'paypal':
+                    detailsHTML = `
+                        <div class="payment-details" style="display: block;">
+                            <p>Please send payment to:</p>
+                            <div class="payment-info">
+                                PayPal Email: clintonmoipan34@gmail.com
+                                <button class="copy-btn" data-text="clintonmoipan34@gmail.com">Copy</button>
+                            </div>
+                            <p>After payment, send screenshot to the owner.</p>
+                        </div>
+                    `;
+                    break;
+            }
+            
+            paymentDetails.innerHTML = detailsHTML;
+            
+            // Add copy functionality
+            paymentDetails.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const text = this.getAttribute('data-text');
+                    navigator.clipboard.writeText(text).then(() => {
+                        this.textContent = 'Copied!';
+                        setTimeout(() => {
+                            this.textContent = 'Copy';
+                        }, 2000);
+                    });
+                });
+            });
+        }
+
+        function showContactOptions(toolId, toolName) {
+            const modalBody = document.getElementById('modalBody');
+            
+            modalBody.innerHTML = `
+                <p>Contact owner about ${toolName}:</p>
+                <button class="option-btn" data-contact="whatsapp">
+                    <i class="fab fa-whatsapp"></i> Message on WhatsApp
+                </button>
+                <button class="option-btn" data-contact="telegram">
+                    <i class="fab fa-telegram"></i> Message on Telegram
+                </button>
+                <button class="close-modal">Back</button>
+            `;
+            
+            // Add event listeners to contact buttons
+            modalBody.querySelector('[data-contact="whatsapp"]').addEventListener('click', function() {
+                const message = `Hi sir I want to rent ${toolName} is it available..?`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://wa.me/message/HB7YU37RR4XUH1?text=${encodedMessage}`, '_blank');
+            });
+            
+            modalBody.querySelector('[data-contact="telegram"]').addEventListener('click', function() {
+                const message = `Hi sir I want to rent ${toolName} is it available..?`;
+                const encodedMessage = encodeURIComponent(message);
+                window.open(`https://t.me/CHIMERA_CM?text=${encodedMessage}`, '_blank');
+            });
+            
+            modalBody.querySelector('.close-modal').addEventListener('click', function() {
+                openPaymentModal(toolId, toolName);
+            });
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('paymentModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                this.style.display = 'none';
+            }
+        });
+
+        // Search functionality
+        document.querySelector('.search-box button').addEventListener('click', function() {
+            const searchTerm = document.querySelector('.search-box input').value.toLowerCase();
+            filterTools(searchTerm);
+        });
+
+        document.querySelector('.search-box input').addEventListener('keyup', function(e) {
+            if (e.key === 'Enter') {
+                const searchTerm = this.value.toLowerCase();
+                filterTools(searchTerm);
+            }
+        });
+
+        function filterTools(searchTerm) {
+            const toolCards = document.querySelectorAll('.tool-card');
+            
+            toolCards.forEach(card => {
+                const toolName = card.querySelector('.tool-name').textContent.toLowerCase();
+                const toolFeatures = card.querySelector('.tool-features').textContent.toLowerCase();
+                
+                if (toolName.includes(searchTerm) || toolFeatures.includes(searchTerm)) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+        }
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            renderTools();
+        });
+    </script>
+</body>
+</html>
